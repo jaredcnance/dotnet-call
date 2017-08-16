@@ -10,7 +10,6 @@
     <PackageProjectUrl>https://github.com/jaredcnance/dotnet-call</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="colorful.console" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />

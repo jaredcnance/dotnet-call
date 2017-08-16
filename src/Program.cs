@@ -4,8 +4,6 @@ using System.Reflection;
 using System.Runtime.Loader;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.CommandLineUtils;
-using Console = Colorful.Console;
-using System.Drawing;
 
 namespace DotnetCall
 {
@@ -21,7 +19,7 @@ namespace DotnetCall
         private static void Log(string message, bool forceLog = false, params string[] format)
         {
             if (_log || forceLog)
-                Console.WriteLineFormatted(message, Color.LightGoldenrodYellow, Color.Gray, format);
+                Console.WriteLine(message);
         }
 
         // dotnet call -a assembly -c namespace.class -m method        
