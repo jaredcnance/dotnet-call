@@ -59,7 +59,7 @@ namespace DotnetCall
             if(myType == null)
             {
                 Console.WriteLine($"Type '{options.FullyQualifiedClassName}' not found in assembly '{myAssembly}'. The following types are available:");
-                foreach(var definedType in myAssembly.DefinedTypes)
+                foreach(var definedType in myAssembly.GetTypes())
                     Console.WriteLine($" - {definedType.Name}");
             }
 
