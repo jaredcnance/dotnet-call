@@ -72,20 +72,27 @@ namespace DotnetCall
             method.Invoke(myInstance, new[] { instance });
         }
 
-        static string FindFile(string directory, string assembly)
+        static string FindFile(string directory, string assembly, bool throwIfNotFound = true)
         {
             Log($"Looking for {assembly} in {directory}");
             foreach (string d in Directory.GetDirectories(directory))
             {
                 var files = Directory.GetFiles(d, $"{assembly}.dll");
+                
                 Log($"Found {files.Length} files");
-                foreach (var filePath in files)
-                    return filePath;
 
-                return FindFile(d, assembly);
+                if(files.Length == 1)
+                    return files[0];
+                else if(files.Length > 1)
+                    throw new Exception("Found more than one matching assembly");
+
+                return FindFile(d, assembly, throwIfNotFound: false);
             }
 
-            throw new Exception("Could not find the assembly");
+            if(throwIfNotFound)
+                throw new Exception("Could not find the assembly");
+
+            return null;
         }
     }
 }
