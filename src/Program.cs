@@ -54,7 +54,9 @@ namespace DotnetCall
             var assemblyPath = FindFile(directory, options.AssemblyName);
             Log($"Loading assembly {assemblyPath}");
 
-            var myAssembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
+            //var  = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
+            var assemblyName = AssemblyLoadContext.GetAssemblyName(assemblyPath);
+            var myAssembly = Assembly.Load(assemblyName);
             var myType = myAssembly.GetType($"{options.FullyQualifiedClassName}");
             if(myType == null)
             {
