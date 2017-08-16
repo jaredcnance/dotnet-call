@@ -56,6 +56,13 @@ namespace DotnetCall
 
             var myAssembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
             var myType = myAssembly.GetType($"{options.FullyQualifiedClassName}");
+            if(myType == null)
+            {
+                Console.WriteLine($"Type '{options.FullyQualifiedClassName}' not found in assembly '{myAssembly}'. The following types are available:");
+                foreach(var definedType in myAssembly.DefinedTypes)
+                    Console.WriteLine($" - {definedType.Name}");
+            }
+
             var myInstance = Activator.CreateInstance(myType);
             var method = myType.GetTypeInfo().GetMethod(options.MethodName);
 
