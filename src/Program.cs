@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Runtime.Loader;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.CommandLineUtils;
+using Newtonsoft.Json;
 
 namespace DotnetCall
 {
@@ -58,9 +59,18 @@ namespace DotnetCall
             var myType = myAssembly.GetType($"{options.FullyQualifiedClassName}");
             if(myType == null)
             {
-                Console.WriteLine($"Type '{options.FullyQualifiedClassName}' not found in assembly '{myAssembly}'. The following types are available:");
-                foreach(var definedType in myAssembly.GetTypes())
+                try 
+                {
+                    Console.WriteLine($"Type '{options.FullyQualifiedClassName}' not found in assembly '{myAssembly}'. The following types are available:");
+                    var types = myAssembly.GetTypes();
+                    foreach(var definedType in types)
                     Console.WriteLine($" - {definedType.Name}");
+                }
+                catch(Exception e)
+                {
+                     Console.WriteLine(JsonConvert.SerializeObject(e));
+                     throw;
+                }
             }
 
             var myInstance = Activator.CreateInstance(myType);
