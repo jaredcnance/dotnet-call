@@ -4,7 +4,7 @@ Add the tool to your `csproj` file:
 
 ```
 <ItemGroup>
-    <DotNetCliToolReference Include="dotnet-exec" Version="0.1.0-*" />
+    <DotNetCliToolReference Include="dotnet-call" Version="0.1.0-*" />
 </ItemGroup>
 ```
 

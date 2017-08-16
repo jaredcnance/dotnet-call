@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotnetExecExample
+namespace DotnetCallExample
 {
     public class Class1
     {

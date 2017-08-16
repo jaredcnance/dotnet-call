@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="dotnet-exec" Version="0.1.0-*" />
+    <DotNetCliToolReference Include="dotnet-call" Version="0.1.0-*" />
   </ItemGroup>
 
 </Project>

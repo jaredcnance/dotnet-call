@@ -7,13 +7,13 @@ using Microsoft.Extensions.CommandLineUtils;
 using Console = Colorful.Console;
 using System.Drawing;
 
-namespace DotnetExec
+namespace DotnetCall
 {
     class Program
     {
         static Program()
         {
-            var envLogValue = Environment.GetEnvironmentVariable("DOTNET_EXEC_LOG");
+            var envLogValue = Environment.GetEnvironmentVariable("DOTNET_CALL_LOG");
             _log = bool.TryParse(envLogValue, out bool shouldLog) ? shouldLog : false;
         }
 
@@ -24,7 +24,7 @@ namespace DotnetExec
                 Console.WriteLineFormatted(message, Color.LightGoldenrodYellow, Color.Gray, format);
         }
 
-        // dotnet exec -a assembly -c namespace.class -m method        
+        // dotnet call -a assembly -c namespace.class -m method        
         static void Main(string[] args)
         {
             var commandLineApplication = new CommandLineApplication(throwOnUnexpectedArg: false);

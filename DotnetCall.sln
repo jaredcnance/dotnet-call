@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-exec", "src\dotnet-exec.csproj", "{55CB96E5-77C6-4FA7-8AC5-72C2E8025BD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-call", "src\dotnet-call.csproj", "{55CB96E5-77C6-4FA7-8AC5-72C2E8025BD0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{6471679F-0516-4CFB-AD53-C45ADA182907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetExecExample", "examples\DotnetExecExample\DotnetExecExample.csproj", "{6B1E2FA1-8AC9-472D-BA8E-480181D4CCA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCallExample", "examples\DotnetCallExample\DotnetCallExample.csproj", "{6B1E2FA1-8AC9-472D-BA8E-480181D4CCA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

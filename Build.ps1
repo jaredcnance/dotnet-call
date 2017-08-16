@@ -12,20 +12,20 @@ function Get-Version-Suffix-From-Tag
 $revision = @{ $true = $env:APPVEYOR_BUILD_NUMBER; $false = 1 }[$env:APPVEYOR_BUILD_NUMBER -ne $NULL];
 $revision = "{0:D4}" -f [convert]::ToInt32($revision, 10)
 
-dotnet restore .\src\dotnet-exec.csproj
+dotnet restore .\src\dotnet-call.csproj
 
 #dotnet test ./test/UnitTests/UnitTests.csproj
 
-dotnet build .\src\dotnet-exec.csproj -c Release
+dotnet build .\src\dotnet-call.csproj -c Release
 
 echo "APPVEYOR_REPO_TAG: $env:APPVEYOR_REPO_TAG"
 
 If($env:APPVEYOR_REPO_TAG -eq $true) {
     $revision = Get-Version-Suffix-From-Tag
-    echo "RUNNING dotnet pack .\src\dotnet-exec.csproj -c Release -o .\artifacts --version-suffix=$revision"
-    dotnet pack .\src\dotnet-exec.csproj -c Release -o .\artifacts --version-suffix=$revision 
+    echo "RUNNING dotnet pack .\src\dotnet-call.csproj -c Release -o .\artifacts --version-suffix=$revision"
+    dotnet pack .\src\dotnet-call.csproj -c Release -o .\artifacts --version-suffix=$revision 
 }
 Else { 
-    echo "RUNNING dotnet pack .\src\dotnet-exec.csproj -c Release -o .\artifacts --version-suffix=alpha1-$revision"
-    dotnet pack .\src\dotnet-exec.csproj -c Release -o .\artifacts --version-suffix=alpha1-$revision 
+    echo "RUNNING dotnet pack .\src\dotnet-call.csproj -c Release -o .\artifacts --version-suffix=alpha1-$revision"
+    dotnet pack .\src\dotnet-call.csproj -c Release -o .\artifacts --version-suffix=alpha1-$revision 
 }
