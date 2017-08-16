@@ -86,7 +86,9 @@ namespace DotnetCall
                 else if(files.Length > 1)
                     throw new Exception("Found more than one matching assembly");
 
-                return FindFile(d, assembly, throwIfNotFound: false);
+                var subdirResult = FindFile(d, assembly, throwIfNotFound: false);
+                if(subdirResult != null)
+                    return subdirResult;
             }
 
             if(throwIfNotFound)
